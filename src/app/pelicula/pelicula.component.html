@@ -1,0 +1,41 @@
+<div class="form-group">
+		<div id="container">
+				<div
+				  ng2-carouselamos
+				  class="slides-wrapper"
+				  [items]="items"
+				  [width]="900"
+				  [$prev]="prev"
+				  [$next]="next"
+				  [$item]="item"
+				>
+				</div>
+			  
+		  
+			  <ng-template #prev>
+				<img src="assets/prev.png" id="left" />
+			  </ng-template>
+			  <ng-template #next>
+				<img src="assets/next.png" id="right" />
+			  </ng-template>
+			  <ng-template #item let-item let-i="index">
+		  
+				  <div class="items">
+					<img src="{{ item.name }}">
+				  </div>
+		  
+			  </ng-template>
+		</div>
+	
+	
+	<label for="sel1">search Movie</label>
+	<select class="form-control" id="sel1">
+		<option *ngFor="let peli of listFilms" [value]= 'peli.title'>
+			{{peli.title}}
+		</option>
+	</select>
+
+	<button (click)="searchMovie()">search</button>
+	<p>{{film}}</p>
+	<!-- <p *ngFor="let detalle of detalles">{{detalle}}</p> -->
+</div>
