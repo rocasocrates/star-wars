@@ -28,14 +28,18 @@
 		</div>
 	
 	
-	<label for="sel1">search Movie</label>
-	<select class="form-control" id="sel1">
-		<option *ngFor="let peli of listFilms" [value]= 'peli.title'>
+	<label for="sel1">Search Movie</label>
+	
+	 <select  ng-model="selected" (change)="searchMovie()" class="form-control" id="sel1">
+		<option *ngFor="let peli of listFilms" [value]= 'peli.episode_id'>
 			{{peli.title}}
-		</option>
+		</option>  
 	</select>
-
-	<button (click)="searchMovie()">search</button>
-	<p>{{film}}</p>
-	<!-- <p *ngFor="let detalle of detalles">{{detalle}}</p> -->
+	<button (click)= "opt()">Select Movie</button>
+	<p *ngFor="let peli of film" ><span>Epidode  {{peli.episode_id}}  </span><span> {{peli.title}}  </span>
+	<span><a target="_blank" [routerLink]="['/details', peli.episode_id]" routerLinkActive="active">Details</a></span>
+	</p>
+	
+	
+      
 </div>

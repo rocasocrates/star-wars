@@ -1,0 +1,21 @@
+<!-- <p *ngFor="let peli of listFilms" >
+    <span>Epidode  {{peli.episode_id}}  </span>
+    <span> {{peli.title}}  </span>
+	<span><a target="_blank" [routerLink]="['/details', peli.episode_id]" routerLinkActive="active">Details</a></span>
+    </p> 
+ -->
+    <h1 style="text-align: center">Details</h1>
+    <div *ngFor="let peli of listFilms" style="text-align:left">
+        <input type="hidden"  value="{{peli.title}}" id="title">
+        <input type="hidden"  value="{{peli.episode_id}}" id="id">
+        <p><b>Title</b>     : {{peli.title}}</p>
+        <p><b>Year</b>      : {{peli.release_date}}</p>
+        <p><b>Synopsis</b>  : {{peli.opening_crawl}}</p>
+    </div>
+    <div style="text-align: left">
+    <h2>Previously visited</h2>
+      <ul>
+          <li  *ngFor="let valor of local">{{valor}}</li>
+      </ul>
+    </div>
+    <button [routerLink]="['/pelicula']" routerLinkActive="active">Prev</button>
